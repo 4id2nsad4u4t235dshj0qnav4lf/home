@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coralflavor Project Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #fefefe;
+      color: #222;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    #timer {
+      font-size: 1.25rem;
+      margin: 1rem 0;
+      color: #555;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: #ff6b6b;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background-color: #ff4a4a;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="message">Loading...</h1>
+  <div id="timer">Redirecting to Coralflavor in 5 seconds...</div>
+  <button onclick="window.location.href='https://coralflavor.com'">
+    Visit other Coralflavor apps (some are not satire)
+  </button>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const proj = params.get("proj") || "This project";
+    const messageEl = document.getElementById("message");
+    messageEl.textContent = `${proj} is not real, it's for virality.`;
+
+    let seconds = 5;
+    const timerEl = document.getElementById("timer");
+    const countdown = setInterval(() => {
+      seconds--;
+      timerEl.textContent = `Redirecting in ${seconds} seconds...`;
+      if (seconds <= 0) {
+        clearInterval(countdown);
+        window.location.href = "https://coralflavor.com";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
+
+
+<!--
+<iframe width="540" height="405" src="https://e020fb50.sibforms.com/serve/MUIFAIjpHAlpuk243liHiJYw6CcMb2O-j891ujD5QTdxgAyLHO578GUh123R3HJDlu4Om4bS1J1ZKYDDCBmB7OpDhkFhaREObM_wXO8C_Qq2SQdYzdqMu7S3nJTJ4B6xeI9qCfzLajj5AJM32eFcSwLpXrDkQ_K2jwAesZykyq5Xlx1WMdEb5jXc1k7AIovt4EbwX7n0W_CTHwQh" frameborder="0" scrolling="auto" allowfullscreen style="display: block;margin-left: auto;margin-right: auto;max-width: 100%;"></iframe>
+-->
