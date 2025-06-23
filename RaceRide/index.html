@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RaceRide - Your Ride, Your Way</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+  *{
+  margin:0}
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .pricing-bar {
+      background: #333;
+      color: #fff;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .hero {
+      padding: 3rem 2rem;
+      background: linear-gradient(to right, lightcoral, black);
+      color: white;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 4.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.5rem;
+    }
+    .customization {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 2rem;
+      justify-content: center;
+    }
+    .customization select {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid white;
+    }
+    .customization label {
+      font-weight: bold;
+    }
+    .customization-row {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .price {
+      font-weight: bold;
+      color: green;
+      font-size: 1.2rem;
+    }
+    .drivers-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .drivers-gallery img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    .flash-up {
+      animation: flashGreen 0.5s;
+    }
+    .flash-down {
+      animation: flashRed 0.5s;
+    }
+    @keyframes flashGreen {
+      from { background-color: #2ecc71; }
+      to { background-color: transparent; }
+    }
+    @keyframes flashRed {
+      from { background-color: #e74c3c; }
+      to { background-color: transparent; }
+    }
+    footer {
+      background: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RaceRide</h1>
+    <nav>
+      <a href="#" style="color:white; margin-right: 1rem;">How it Works</a>
+      <a href="#" style="color:white;">Sign In</a>
+    </nav>
+  </header>
+
+  <div class="pricing-bar" id="live-pricing-bar">
+    <span data-key="Black">Black: $12.50</span>
+    <span data-key="White">White: $12.50</span>
+    <span data-key="Asian">Asian: $12.50</span>
+    <span data-key="Male">Male: $12.50</span>
+    <span data-key="Female">Female: $12.50</span>
+    <span data-key="Queer">Queer: $12.50</span>
+  </div>
+
+  <section class="hero">
+    <h2>Your Ride, Your Way</h2>
+    <p>Choose exactly who picks you up. <b>Gender</b>. <b>Race</b>. <b>Age</b>. Real-time pricing.</p>
+
+
+
+      <section class="customization">
+    <div class="customization-row">
+      <select id="gender">
+        <option>Male</option>
+        <option>Female</option>
+        <option>Non-binary</option>
+      </select>
+
+      <select id="race">
+        <option>Asian</option>
+        <option>Black</option>
+        <option>Hispanic</option>
+        <option>White</option>
+        <option>Middle Eastern</option>
+        <option>Mixed</option>
+      </select>
+
+      <select id="age">
+        <option>18-25</option>
+        <option>26-35</option>
+        <option>36-50</option>
+        <option>51+</option>
+      </select>
+
+      <div>
+        <p class="price" id="price-display">$12.50</p>
+      </div>
+    </div>
+  </section>
+
+
+    <button style="padding: 0.75rem 1.5rem; border: none; border-radius: 8px; background: white; color: #333; font-weight: bold;">Book a Ride</button>
+  </section>
+
+
+
+  <section class="drivers-gallery">
+    <img src="1.png" alt="Driver 1">
+    <img src="2.png" alt="Driver 2">
+    <img src="3.png" alt="Driver 3">
+    <img src="4.png" alt="Driver 4">
+  </section>
+
+  <footer>
+    &copy; 2025 RaceRide.coralflavor.com - All rights reserved.
+  </footer>
+
+  <script>
+    const priceDisplay = document.getElementById('price-display');
+    let base = 12.5;
+    const pricingData = {
+      'Black': 12.5,
+      'White': 12.5,
+      'Asian': 12.5,
+      'Male': 12.5,
+      'Female': 12.5,
+      'Queer': 12.5
+    };
+
+    const pricingBar = document.getElementById('live-pricing-bar');
+
+    function updatePrice(key) {
+      const span = pricingBar.querySelector(`span[data-key="${key}"]`);
+      const oldPrice = pricingData[key];
+      const fluctuation = (Math.random() - 0.5) * 1.5;
+      const newPrice = Math.max(5, Math.min(50, oldPrice + fluctuation));
+      pricingData[key] = newPrice;
+      span.textContent = `${key}: $${newPrice.toFixed(2)}`;
+
+      span.classList.remove('flash-up', 'flash-down');
+      if (newPrice > oldPrice) {
+        span.classList.add('flash-up');
+      } else if (newPrice < oldPrice) {
+        span.classList.add('flash-down');
+      }
+    }
+
+    function randomUpdate() {
+      const keys = Object.keys(pricingData);
+      const key = keys[Math.floor(Math.random() * keys.length)];
+      updatePrice(key);
+    }
+
+    setInterval(() => {
+      randomUpdate();
+    }, 300);
+
+    setInterval(() => {
+      const fluctuation = (Math.random() - 0.5) * 2;
+      base = Math.max(5, Math.min(50, base + fluctuation));
+      priceDisplay.textContent = `$${base.toFixed(2)}`;
+    }, 2000);
+  </script>
+</body>
+</html>
