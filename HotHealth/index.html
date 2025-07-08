@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insurance Premiums Based On Attractiveness</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+    :root {
+      --primary-color: lightcoral;
+      --accent-color: lightcoral;
+      --bg-color: #f9faff;
+      --text-color: #333;
+      --light-grey: #e1e4e8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "PT Serif", serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid var(--light-grey);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: #fff;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: #fff;
+      padding: 0.75rem 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-color);
+    }
+
+    /* PREMIUM CARDS */
+    .premium-section {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 2rem;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .profile-card {
+      background-color: #fff;
+      border: 1px solid var(--light-grey);
+      border-radius: 6px;
+      width: calc(20% - 1rem);
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .profile-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+    .profile-card h4 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+    .profile-card p {
+      font-size: 1rem;
+      color: #555;
+    }
+    .profile-card small {
+      display: block;
+      margin-top: 0.5rem;
+      color: #888;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #fff;
+      border-top: 1px solid var(--light-grey);
+      padding: 2rem;
+      font-size: 0.875rem;
+      color: #666;
+    }
+    footer .footer-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px) {
+      .premium-section { justify-content: center; }
+      .profile-card { width: 45%; }
+    }
+    @media (max-width: 600px) {
+      header, .hero, footer { padding: 1rem; }
+      .premium-section { padding: 1rem; }
+      .profile-card { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Hot Health Inc.</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">How It Works</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Insurance Premiums Based On Attractiveness</h1>
+    <p>Leverage advanced AI-driven facial analysis to personalize your health insurance rates.</p>
+    <a href="https://coralflavor.com/redirect.html" class="btn-primary">Get Started: AI Face Scan</a>
+  </section>
+
+  <section class="premium-section">
+    <div class="profile-card">
+      <img src="1.png" alt="FARI 38">
+      <h4>FARI™ Score: 38</h4>
+      <p>Monthly Premium: $494.29</p>
+      <small>*FARI: Facial Attractivness Risk Index</small>
+    </div>
+    <div class="profile-card">
+      <img src="2.png" alt="FARI 51">
+      <h4>FARI™ Score: 51</h4>
+      <p>Monthly Premium: $429.17</p>
+    </div>
+    <div class="profile-card">
+      <img src="3.png" alt="FARI 66">
+      <h4>FARI™ Score: 66</h4>
+      <p>Monthly Premium: $362.88</p>
+    </div>
+    <div class="profile-card">
+      <img src="4.png" alt="FARI 78">
+      <h4>FARI™ Score: 78</h4>
+      <p>Monthly Premium: $288.45</p>
+    </div>
+    <div class="profile-card">
+      <img src="5.png" alt="FARI 92">
+      <h4>FARI™ Score: 92</h4>
+      <p>Monthly Premium: $199.00</p>
+    </div>
+  </section>
+
+
+
+  <footer>
+    <div class="footer-section">
+      <div>
+        <strong>Company</strong><br>
+        <a href="#">About Us</a><br>
+        <a href="#">Scientific Advisory Board</a><br>
+        <a href="#">Careers</a><br>
+        <a href="#">Legal & Disclaimers</a>
+      </div>
+
+      <div>
+        © 2025 Hot Health, Inc. by <a href="https://coralflavor.com">coralflavor</a><br>
+        Reimagining Insurance.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
